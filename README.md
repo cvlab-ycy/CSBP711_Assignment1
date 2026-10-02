@@ -102,15 +102,36 @@ All three members took part in choosing the dataset, agreeing on the hypothesis 
 |---|---|---|
 | **Yingfeng Wang 700049354** | **Data provenance and reproducibility.** Verified the Fashion-MNIST source, MIT licence, download date and MD5 checksums, and wrote the dataset record. Designed the data-preparation checks in `study.py` (checksums, IDX headers, label ranges, class counts, missing values) together with Chenye Yang, and recorded the data-audit outputs. Wrote the README and the one-command runner, and built the repository checker. Wrote the training-history review that summarises the six learning-rate pilots and the checkpoint chosen for each run. Checked the comparison table against the saved runs, including the timing and model-size definitions. | `README.md`, `DATASET.md`, `scripts/run_all.sh`, `scripts/check_repository.py`, `src/training_review.py`, `reports/data_audit/`, `reports/comparison.csv`, pilot and checkpoint review outputs |
 | **[MEMBER 2 NAME / ID]** | **Models and training pipeline.** Implemented the main pipeline in `study.py`: download, preprocessing and the stratified split with seed 711; the four models (nearest centroid, logistic regression, MLP, CNN); the shared training loop with Adam, early stopping and best-checkpoint restore; the fixed pixel permutation; and test evaluation. Set up the frozen protocol and the environment files, ran the 24 final fits, produced the learning curves, and wrote the training walkthrough. | `src/study.py`, `config/protocol.json`, `requirements.txt`, `environment.yml`, `TRAINING_WALKTHROUGH.md`, `reports/all_runs.csv`, `reports/figures/learning_curves.png` |
-| **[MEMBER 3 NAME / ID]** | **Leakage audit, testing and explanation.** Wrote the exhaustive near-duplicate audit and designed the duplicate-grouping rule used in `study.py` together with Member 2. Wrote the test suite (permutation invariance, centroid invariance, duplicate grouping, model saving). Built the report stage: result tables, confusion matrices, error examples, the paired CNN–MLP ablation and bootstrap intervals. Wrote the independent result verification and the results write-up. | `scripts/exhaustive_duplicate_audit.py`, `tests/test_experiment.py`, `src/report.py`, `scripts/verify_results.py`, `reports/results.md`, `reports/paired_ablation.csv`, `reports/ablation_analysis.json`, ablation and confusion figures |
+| **[Tianyi Wang  700053286]** | **Leakage audit, testing and explanation.** Wrote the exhaustive near-duplicate audit and designed the duplicate-grouping rule used in `study.py` together with Member 2. Wrote the test suite (permutation invariance, centroid invariance, duplicate grouping, model saving). Built the report stage: result tables, confusion matrices, error examples, the paired CNN–MLP ablation and bootstrap intervals. Wrote the independent result verification and the results write-up. | `scripts/exhaustive_duplicate_audit.py`, `tests/test_experiment.py`, `src/report.py`, `scripts/verify_results.py`, `reports/results.md`, `reports/paired_ablation.csv`, `reports/ablation_analysis.json`, ablation and confusion figures |
 
 ## AI and library disclosure
 
-The dataset choice, experimental design, model implementation, training runs and analysis were done by the group. We used AI assistants (OpenAI Codex) in a supporting role: tidying code style and structure, helping us organise the project plan, and adjusting the format, structure and wording of the README and reports. All code and text were reviewed by the group, and every reported number comes from our own saved runs, not from a paper or leaderboard.
+The dataset choice, experimental design, model implementation, training runs and analysis were done by the group. We used AI assistants (OpenAI Codex) in a supporting role: tidying code style and structure, checking and adjusting the model architectures and code, helping us organise the project plan, and adjusting the format, structure and wording of the README and reports. All code and text were reviewed by the group, and every reported number comes from our own saved runs, not from a paper or leaderboard.
 
-The implementation uses PyTorch layers and optimisers, scikit-learn metrics and splitting, and NumPy, pandas and Matplotlib for analysis. No pretrained weights are used. Fashion-MNIST should be cited as:
+We did not use pretrained models. The four models are standard architectures assembled from PyTorch's built-in layers. We based the MLP and CNN designs on the official PyTorch and TensorFlow Fashion-MNIST tutorials listed below, and the CNN follows the convolution–pooling design of LeCun et al. (1998). OpenAI Codex helped us check and adjust the architectures and code. 
 
-> Han Xiao, Kashif Rasul and Roland Vollgraf (2017), “Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms.” https://arxiv.org/abs/1708.07747
+The implementation is built on the following open-source libraries:
+
+- **PyTorch**: model layers, Adam optimiser, training and evaluation
+- **scikit-learn**: stratified splitting, accuracy and macro-F1, confusion matrices
+- **NumPy** and **pandas**: data handling and result tables
+- **Matplotlib**: figures
+- **pytest**: test suite
+- SciPy and Pillow are installed as supporting dependencies of the libraries above.
+
+No pretrained weights are used.
+
+
+
+### References
+
+- Xiao H, Rasul K, Vollgraf R. Fashion-mnist: a novel image dataset for benchmarking machine learning algorithms[J]. arXiv preprint arXiv:1708.07747, 2017.
+
+- TensorFlow tutorial. *Basic classification: Classify images of clothing.* https://www.tensorflow.org/tutorials/keras/classification
+- PyTorch tutorial. *Quickstart* (Fashion-MNIST). https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html
+- PyTorch tutorial. *Training a Classifier.* https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html
+- Kingma D P, Ba J. Adam: A method for stochastic optimization[J]. arXiv preprint arXiv:1412.6980, 2014.
+
 
 ## Limitations
 
