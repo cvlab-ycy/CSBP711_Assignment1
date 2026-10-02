@@ -2,7 +2,7 @@
 
 **CSBP711 — Datasets and Algorithm Comparison**
 
-Public repository URL: **[REPLACE WITH THE FINAL GITHUB URL]**
+Public repository URL: **https://github.com/cvlab-ycy/CSBP711_Assignment1**
 
 This project compares four classifiers on Fashion-MNIST and tests why a CNN performs best on intact clothing images. The explanation is that local edges and neighbouring pixels carry useful shape information. The ablation applies one fixed pixel permutation to every train, validation and test image, preserves the pixel values and labels, and retrains every model. The CNN–MLP accuracy gap changes from **+3.03 percentage points** on intact images to **−0.63 points** after permutation.
 
