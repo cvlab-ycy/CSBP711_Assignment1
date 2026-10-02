@@ -1,8 +1,5 @@
-"""Dataset audit, validation-only model selection, paired ablation and sealed test.
+# Dataset audit, validation-only model selection, paired ablation and sealed test.
 
-Run from any directory with `python /path/to/project/src/study.py COMMAND`.
-All generated paths are relative to the project, never a developer's machine.
-"""
 from __future__ import annotations
 
 import argparse
@@ -105,12 +102,8 @@ class UnionFind:
 
 
 def duplicate_groups(images, rules):
-    """Exhaustive for fixed raw-pixel MAE/RMSE thresholds, not semantic similarity.
-
-    Equal-sized block means lower-bound full-image RMSE by Jensen's inequality.
-    We safely prune impossible pairs, then verify candidates at all 784 pixels.
-    No average-hash filter or bucket-size cap is used.
-    """
+# Exhaustive for fixed raw-pixel MAE/RMSE thresholds, not semantic similarity.
+    
     hashes = image_hashes(images)
     uf = UnionFind(len(images))
     first, exact_pairs = {}, []
