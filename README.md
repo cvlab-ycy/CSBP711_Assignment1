@@ -2,7 +2,7 @@
 
 **CSBP711 — Datasets and Algorithm Comparison**
 
-Public repository URL: **https://github.com/cvlab-ycy/CSBP711_Assignment1**
+Public repository URL: **[REPLACE WITH THE FINAL GITHUB URL]**
 
 This project compares four classifiers on Fashion-MNIST and tests why a CNN performs best on intact clothing images. The explanation is that local edges and neighbouring pixels carry useful shape information. The ablation applies one fixed pixel permutation to every train, validation and test image, preserves the pixel values and labels, and retrains every model. The CNN–MLP accuracy gap changes from **+3.03 percentage points** on intact images to **−0.63 points** after permutation.
 
@@ -96,17 +96,17 @@ reports/                compact result tables and figures from the reported run
 
 ## Contributions
 
-Replace every bracketed field with the three members' real names, IDs and truthful work before publication. Commit IDs must come from the final public repository.
+All three members took part in choosing the dataset, agreeing on the hypothesis and ablation design, fixing the experimental protocol, and preparing the slides. Some shared work was committed from one member's account; the table names who did what, not just who pushed it.
 
-| Member | Individual contribution | Commit evidence |
+| Member | Individual contribution | Main files committed |
 |---|---|---|
-| **Yingfeng Wang 700049354** | Verified dataset provenance, licence and checksums; reviewed duplicate and split controls; tested the centroid and logistic baselines; checked the reported runtime, parameter-size and comparison values. | **wyfwyfwyf1234567** |
-| **[MEMBER 2 NAME / ID]** | Verified preprocessing, stratified splitting and class balance; reviewed the audit controls; tested the MLP, shared training loop and early stopping; analysed learning curves and learning-rate pilots. | **[ADD MEMBER 2 COMMIT IDS OR PRS]** |
-| **[MEMBER 3 NAME / ID]** | Verified duplicate and leakage handling; reviewed dataset preparation; tested the CNN and pixel-permutation condition; reproduced the paired ablation, uncertainty analysis and interpretation. | **[ADD MEMBER 3 COMMIT IDS OR PRS]** |
+| **Yingfeng Wang 700049354** | **Data provenance and reproducibility.** Verified the Fashion-MNIST source, MIT licence, download date and MD5 checksums, and wrote the dataset record. Designed the data-preparation checks in `study.py` (checksums, IDX headers, label ranges, class counts, missing values) together with Member 2, and recorded the data-audit outputs. Wrote the README and the one-command runner, and built the repository checker. Wrote the training-history review that summarises the six learning-rate pilots and the checkpoint chosen for each run. Checked the comparison table against the saved runs, including the timing and model-size definitions. | `README.md`, `DATASET.md`, `scripts/run_all.sh`, `scripts/check_repository.py`, `src/training_review.py`, `reports/data_audit/`, `reports/comparison.csv`, pilot and checkpoint review outputs |
+| **[MEMBER 2 NAME / ID]** | **Models and training pipeline.** Implemented the main pipeline in `study.py`: download, preprocessing and the stratified split with seed 711; the four models (nearest centroid, logistic regression, MLP, CNN); the shared training loop with Adam, early stopping and best-checkpoint restore; the fixed pixel permutation; and test evaluation. Set up the frozen protocol and the environment files, ran the 24 final fits, produced the learning curves, and wrote the training walkthrough. | `src/study.py`, `config/protocol.json`, `requirements.txt`, `environment.yml`, `TRAINING_WALKTHROUGH.md`, `reports/all_runs.csv`, `reports/figures/learning_curves.png` |
+| **[MEMBER 3 NAME / ID]** | **Leakage audit, testing and explanation.** Wrote the exhaustive near-duplicate audit and designed the duplicate-grouping rule used in `study.py` together with Member 2. Wrote the test suite (permutation invariance, centroid invariance, duplicate grouping, model saving). Built the report stage: result tables, confusion matrices, error examples, the paired CNN–MLP ablation and bootstrap intervals. Wrote the independent result verification and the results write-up. | `scripts/exhaustive_duplicate_audit.py`, `tests/test_experiment.py`, `src/report.py`, `scripts/verify_results.py`, `reports/results.md`, `reports/paired_ablation.csv`, `reports/ablation_analysis.json`, ablation and confusion figures |
 
 ## AI and library disclosure
 
-OpenAI Codex assisted with code drafting, the duplicate-audit correction, experiment execution, numerical checks, analysis, report drafting and repository preparation. The group is responsible for reviewing the work, understanding the training and evaluation process, and reporting each member's real contribution. Reported performance values come from the saved executable runs, not a paper or leaderboard.
+The dataset choice, experimental design, model implementation, training runs and analysis were done by the group. We used AI assistants (OpenAI Codex) in a supporting role: tidying code style and structure, helping us organise the project plan, and adjusting the format, structure and wording of the README and reports. All code and text were reviewed by the group, and every reported number comes from our own saved runs, not from a paper or leaderboard.
 
 The implementation uses PyTorch layers and optimisers, scikit-learn metrics and splitting, and NumPy, pandas and Matplotlib for analysis. No pretrained weights are used. Fashion-MNIST should be cited as:
 
