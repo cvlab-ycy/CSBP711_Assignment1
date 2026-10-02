@@ -2,7 +2,7 @@
 
 **CSBP711 — Datasets and Algorithm Comparison**
 
-Public repository URL: **[REPLACE WITH THE FINAL GITHUB URL]**
+Public repository URL: **https://github.com/cvlab-ycy/CSBP711_Assignment1**
 
 This project compares four classifiers on Fashion-MNIST and tests why a CNN performs best on intact clothing images. The explanation is that local edges and neighbouring pixels carry useful shape information. The ablation applies one fixed pixel permutation to every train, validation and test image, preserves the pixel values and labels, and retrains every model. The CNN–MLP accuracy gap changes from **+3.03 percentage points** on intact images to **−0.63 points** after permutation.
 
@@ -100,7 +100,7 @@ Replace every bracketed field with the three members' real names, IDs and truthf
 
 | Member | Individual contribution | Commit evidence |
 |---|---|---|
-| **[MEMBER 1 NAME / ID]** | Verified dataset provenance, licence and checksums; reviewed duplicate and split controls; tested the centroid and logistic baselines; checked the reported runtime, parameter-size and comparison values. | **[ADD MEMBER 1 COMMIT IDS OR PRS]** |
+| **Yingfeng Wang 700049354** | Verified dataset provenance, licence and checksums; reviewed duplicate and split controls; tested the centroid and logistic baselines; checked the reported runtime, parameter-size and comparison values. | **wyfwyfwyf1234567** |
 | **[MEMBER 2 NAME / ID]** | Verified preprocessing, stratified splitting and class balance; reviewed the audit controls; tested the MLP, shared training loop and early stopping; analysed learning curves and learning-rate pilots. | **[ADD MEMBER 2 COMMIT IDS OR PRS]** |
 | **[MEMBER 3 NAME / ID]** | Verified duplicate and leakage handling; reviewed dataset preparation; tested the CNN and pixel-permutation condition; reproduced the paired ablation, uncertainty analysis and interpretation. | **[ADD MEMBER 3 COMMIT IDS OR PRS]** |
 
