@@ -104,8 +104,6 @@ Replace every bracketed field with the three members' real names, IDs and truthf
 | **[MEMBER 2 NAME / ID]** | Verified preprocessing, stratified splitting and class balance; reviewed the audit controls; tested the MLP, shared training loop and early stopping; analysed learning curves and learning-rate pilots. | **[ADD MEMBER 2 COMMIT IDS OR PRS]** |
 | **[MEMBER 3 NAME / ID]** | Verified duplicate and leakage handling; reviewed dataset preparation; tested the CNN and pixel-permutation condition; reproduced the paired ablation, uncertainty analysis and interpretation. | **[ADD MEMBER 3 COMMIT IDS OR PRS]** |
 
-The cross-stage division, commit sequence and assigned peer reviews are in [TEAM_COMMIT_PLAN.md](TEAM_COMMIT_PLAN.md). Each member must personally review, run and commit the work attributed to them. Do not copy this suggested text unchanged if it does not describe what the member actually did.
-
 ## AI and library disclosure
 
 OpenAI Codex assisted with code drafting, the duplicate-audit correction, experiment execution, numerical checks, analysis, report drafting and repository preparation. The group is responsible for reviewing the work, understanding the training and evaluation process, and reporting each member's real contribution. Reported performance values come from the saved executable runs, not a paper or leaderboard.
