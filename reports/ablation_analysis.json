@@ -1,0 +1,38 @@
+{
+  "original_winner": "cnn",
+  "permuted_winner": "mlp",
+  "cnn_mlp_rank_reversal": true,
+  "original_cnn_minus_mlp": 0.030266666666666667,
+  "permuted_cnn_minus_mlp": -0.006266666666666667,
+  "cnn_relative_advantage_lost": 0.036533333333333334,
+  "original_gap_group_bootstrap_95ci": [
+    0.02646583333333333,
+    0.034370851085108504
+  ],
+  "permuted_gap_group_bootstrap_95ci": [
+    -0.00960002400240024,
+    -0.002833333333333334
+  ],
+  "relative_advantage_lost_group_bootstrap_95ci": [
+    0.03173551506735515,
+    0.04147154340434043
+  ],
+  "bootstrap_interpretation": "Paired test-group bootstrap, averaging the three fixed training seeds first. Conditional on these fitted models; not a confidence interval over all possible training randomness.",
+  "original_vs_permuted_prediction_agreement": {
+    "centroid": 1.0,
+    "logistic": 1.0,
+    "mlp": 0.9339333333333333
+  },
+  "all_original_models_ranked": [
+    "cnn",
+    "mlp",
+    "logistic",
+    "centroid"
+  ],
+  "all_permuted_models_ranked": [
+    "mlp",
+    "cnn",
+    "logistic",
+    "centroid"
+  ]
+}
