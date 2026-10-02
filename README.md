@@ -11,12 +11,11 @@ This project compares four classifiers on Fashion-MNIST and tests why a CNN perf
 - **Name:** Fashion-MNIST
 - **Source:** https://github.com/zalandoresearch/fashion-mnist
 - **Licence:** MIT, as stated in the source repository
-- **Version record:** official IDX files downloaded and checksum-verified on **22 September 2026**
 - **Size:** 70,000 labelled 28 × 28 grayscale images in 10 balanced clothing classes
 - **Official split:** 60,000 development images and 10,000 test images
 - **Corrected working split:** 53,979 training, 5,998 validation and 10,000 test images after the documented duplicate-group audit
 
-The preparation stage downloads the four official files, verifies their published MD5 checksums, validates their IDX headers and labels, checks missing values and exact repeats, performs the declared near-duplicate audit, and saves a stratified split using seed 711. See [DATASET.md](DATASET.md) for the collection description, preprocessing, exclusions and leakage controls.
+The preparation stage downloads the four official files, verifies their published MD5 checksums, checks missing values and exact repeats, performs the declared near-duplicate audit, and saves a stratified split using seed 711. See [DATASET.md](DATASET.md) for the collection description, preprocessing, exclusions and leakage controls.
 
 ## Methods and fair comparison
 
@@ -98,11 +97,11 @@ reports/                compact result tables and figures from the reported run
 
 All three members took part in choosing the dataset, agreeing on the hypothesis and ablation design, fixing the experimental protocol, and preparing the slides. Some shared work was committed from one member's account; the table names who did what, not just who pushed it.
 
-| Member | Individual contribution | Main files committed |
-|---|---|---|
-| **Yingfeng Wang 700049354** | **Data provenance and reproducibility.** Verified the Fashion-MNIST source, MIT licence, download date and MD5 checksums, and wrote the dataset record. Designed the data-preparation checks in `study.py` (checksums, IDX headers, label ranges, class counts, missing values) together with Chenye Yang, and recorded the data-audit outputs. Wrote the README and the one-command runner, and built the repository checker. Wrote the training-history review that summarises the six learning-rate pilots and the checkpoint chosen for each run. Checked the comparison table against the saved runs, including the timing and model-size definitions. | `README.md`, `DATASET.md`, `scripts/run_all.sh`, `scripts/check_repository.py`, `src/training_review.py`, `reports/data_audit/`, `reports/comparison.csv`, pilot and checkpoint review outputs |
-| **[MEMBER 2 NAME / ID]** | **Models and training pipeline.** Implemented the main pipeline in `study.py`: download, preprocessing and the stratified split with seed 711; the four models (nearest centroid, logistic regression, MLP, CNN); the shared training loop with Adam, early stopping and best-checkpoint restore; the fixed pixel permutation; and test evaluation. Set up the frozen protocol and the environment files, ran the 24 final fits, produced the learning curves, and wrote the training walkthrough. | `src/study.py`, `config/protocol.json`, `requirements.txt`, `environment.yml`, `TRAINING_WALKTHROUGH.md`, `reports/all_runs.csv`, `reports/figures/learning_curves.png` |
-| **[Tianyi Wang  700053286]** | **Leakage audit, testing and explanation.** Wrote the exhaustive near-duplicate audit and designed the duplicate-grouping rule used in `study.py` together with Member 2. Wrote the test suite (permutation invariance, centroid invariance, duplicate grouping, model saving). Built the report stage: result tables, confusion matrices, error examples, the paired CNN–MLP ablation and bootstrap intervals. Wrote the independent result verification and the results write-up. | `scripts/exhaustive_duplicate_audit.py`, `tests/test_experiment.py`, `src/report.py`, `scripts/verify_results.py`, `reports/results.md`, `reports/paired_ablation.csv`, `reports/ablation_analysis.json`, ablation and confusion figures |
+| Member | Individual contribution |
+|---|---|
+| **Yingfeng Wang 700049354** | **Data provenance and reproducibility.** Verified the Fashion-MNIST source, MIT licence, download date and MD5 checksums, and wrote the dataset record. Designed the data-preparation checks in `study.py` (checksums, label ranges, class counts, missing values) together with Chenye Yang, and recorded the data-audit outputs. Wrote the README and the one-command runner, and built the repository checker. Wrote the training-history review that summarises the six learning-rate pilots and the checkpoint chosen for each run. Checked the comparison table against the saved runs, including the timing and model-size definitions. 
+| **Chenye Yang 700052938** | **Models and training pipeline.** Implemented the main pipeline in `study.py`: download, preprocessing and the stratified split with seed 711; the four models (nearest centroid, logistic regression, MLP, CNN); the shared training loop with Adam, early stopping and best-checkpoint restore; the fixed pixel permutation; and test evaluation. Set up the frozen protocol and the environment files, ran the 24 final fits, produced the learning curves, and wrote the training walkthrough. 
+| **Tianyi Wang  700053286** | **Leakage audit, testing and explanation.** Wrote the exhaustive near-duplicate audit and designed the duplicate-grouping rule used in `study.py` together with Chenye Yang. Wrote the test suite (permutation invariance, centroid invariance, duplicate grouping, model saving). Built the report stage: result tables, confusion matrices, error examples, the paired CNN–MLP ablation and bootstrap intervals. Wrote the independent result verification and the results write-up. 
 
 ## AI and library disclosure
 
