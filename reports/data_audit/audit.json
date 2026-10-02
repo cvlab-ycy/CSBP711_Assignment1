@@ -1,0 +1,121 @@
+{
+  "audit_revision": "Corrective rerun after v1 test results were inspected. Same hypothesis, models, seeds, tuning grid and pixel-distance thresholds. The near-duplicate scan now covers all pairs without a hash filter or bucket cap.",
+  "class_counts": {
+    "test": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "train": [
+      5397,
+      5392,
+      5400,
+      5400,
+      5396,
+      5399,
+      5396,
+      5399,
+      5400,
+      5400
+    ],
+    "validation": [
+      600,
+      599,
+      600,
+      600,
+      600,
+      600,
+      599,
+      600,
+      600,
+      600
+    ]
+  },
+  "class_names": [
+    "T-shirt/top",
+    "Trouser",
+    "Pullover",
+    "Dress",
+    "Coat",
+    "Sandal",
+    "Shirt",
+    "Sneaker",
+    "Bag",
+    "Ankle boot"
+  ],
+  "created_utc": "2026-09-22T11:53:18.215176+00:00",
+  "detected_near_pairs": 31,
+  "exact_repeated_images": 0,
+  "features": 784,
+  "files": [
+    {
+      "file": "train-images-idx3-ubyte.gz",
+      "md5": "8d4fb7e6c68d591d4c3dfef9ec88bf0d",
+      "sha256": "3aede38d61863908ad78613f6a32ed271626dd12800ba2636569512369268a84",
+      "url": "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/data/fashion/train-images-idx3-ubyte.gz",
+      "verified_utc": "2026-09-22T11:52:56.636353+00:00"
+    },
+    {
+      "file": "train-labels-idx1-ubyte.gz",
+      "md5": "25c81989df183df01b3e8a0aad5dffbe",
+      "sha256": "a04f17134ac03560a47e3764e11b92fc97de4d1bfaf8ba1a3aa29af54cc90845",
+      "url": "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/data/fashion/train-labels-idx1-ubyte.gz",
+      "verified_utc": "2026-09-22T11:52:56.638323+00:00"
+    },
+    {
+      "file": "t10k-images-idx3-ubyte.gz",
+      "md5": "bef4ecab320f06d8554ea6380940ec79",
+      "sha256": "346e55b948d973a97e58d2351dde16a484bd415d4595297633bb08f03db6a073",
+      "url": "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/data/fashion/t10k-images-idx3-ubyte.gz",
+      "verified_utc": "2026-09-22T11:52:56.656006+00:00"
+    },
+    {
+      "file": "t10k-labels-idx1-ubyte.gz",
+      "md5": "bb300cfdad3c16e7a12a480ee83cd310",
+      "sha256": "67da17c76eaffca5446c3361aaab5c3cd6d1c2608764d35dfb1850b086bf8dd5",
+      "url": "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/data/fashion/t10k-labels-idx1-ubyte.gz",
+      "verified_utc": "2026-09-22T11:52:56.657714+00:00"
+    }
+  ],
+  "final_counts": {
+    "test": 10000,
+    "train": 53979,
+    "validation": 5998
+  },
+  "image_shape": [
+    28,
+    28,
+    1
+  ],
+  "images_in_skipped_buckets": 0,
+  "invalid_labels": 0,
+  "licence": "MIT",
+  "limitations": "The scan covers every pair satisfying raw-pixel MAE <= 2 and RMSE <= 6. It does not detect all transformed or semantic duplicates. Official test images remain unchanged, including repeats. This is a corrective rerun after v1 test results were inspected. The hypothesis, models, seeds and learning-rate grid were retained. Corrected-run checkpoints were frozen before corrected-run evaluation, but the official test set is not a newly unseen holdout.",
+  "missing_or_nonfinite_pixels": 0,
+  "near_duplicate_rule": {
+    "max_mean_absolute_difference_0_255": 2.0,
+    "max_root_mean_squared_difference_0_255": 6.0,
+    "search": "exhaustive_block_mean_lower_bound"
+  },
+  "original_counts": {
+    "test": 10000,
+    "train": 60000
+  },
+  "permutation_seed": 20260922,
+  "protocol_sha256": "c6cdc62cae9bcb4ac988b5b9b47a0d3ffdd43a3b3dbd849b3b7df5c1eaa96448",
+  "skipped_large_near_hash_buckets": 0,
+  "source": "https://github.com/zalandoresearch/fashion-mnist",
+  "split_seed": 711,
+  "test_sha256": "1d11fe7236c4185fd1548a76f6bf8c102c3f310bc437ab4ef3243b5f6d17ac04",
+  "train_val_sha256": "71cba7be7a7ae5ffcc4c8cd78f5b00ba1801d736d0640959a10d99cd93958aa1",
+  "training_images_removed_as_group_repeats": 17,
+  "training_images_removed_due_to_test_overlap": 6,
+  "training_images_removed_in_label_conflict_groups": 0
+}
