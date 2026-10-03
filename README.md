@@ -10,6 +10,7 @@ This project compares four classifiers on Fashion-MNIST and tests why a CNN perf
 
 - **Name:** Fashion-MNIST
 - **Source:** https://github.com/zalandoresearch/fashion-mnist
+- **Version record:** official IDX files downloaded and checksum-verified on **22 September 2026**
 - **Licence:** MIT, as stated in the source repository
 - **Size:** 70,000 labelled 28 × 28 grayscale images in 10 balanced clothing classes
 - **Official split:** 60,000 development images and 10,000 test images
